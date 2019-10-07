@@ -47,7 +47,7 @@ class EntityUpdater(nn.Module):
 
         # Update entities with projected context (See EntNet Paper)
         if "c" in self.opt.afunc:
-            print "Context Application"
+            print("Context Application")
             self.ctx_applicator = nn.Linear(
                 opt.hSize, opt.eSize, False)
 
@@ -510,7 +510,7 @@ class NPN(nn.Module):
                 self.opt.pt, self.opt.entpt,
                 self.opt.eSize)
 
-            print "Loading entity embeddings from {}".format(name)
+            print("Loading entity embeddings from {}".format(name))
             with open(name, "r") as f:
                 entity_words = pickle.load(f)
 

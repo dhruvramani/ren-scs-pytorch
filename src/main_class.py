@@ -42,7 +42,7 @@ vocab_text = {
 splits = ["dev", "test"]
 
 print("Loading Data")
-print opt
+print(opt)
 
 # Flag for whether or not to save models
 meta.save = True
@@ -54,8 +54,8 @@ granularities = {
 
 opt.epochs = 100
 
-print "Doing task: {}".format(opt.task)
-print "Doig granularity: {}".format(opt.granularity)
+print("Doing task: {}".format(opt.task))
+print("Doig granularity: {}".format(opt.granularity))
 
 # Initialize data loader
 if opt.net.enc.model in ["ren", "npn"]:
@@ -132,9 +132,9 @@ if config.gpu_mode:
     for split in data_loader.class_weights:
         data_loader.class_weights[split] = \
             data_loader.class_weights[split].cuda(cfg.device)
-    print "Data to gpu took {} s".format(time.time() - start)
+    print("Data to gpu took {} s".format(time.time() - start))
     model.cuda(cfg.device)
-    print "Model to gpu took {} s".format(time.time() - start)
+    print("Model to gpu took {} s".format(time.time() - start))
 
 print("Done.")
 

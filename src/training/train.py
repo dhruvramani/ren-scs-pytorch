@@ -55,7 +55,7 @@ def train_gen(opt, meta, model, data_loader, gpu=True):
 
     for l in bar(range(1, meta.iterations)):
         if not data_loader.unfilled["neg"]["train"]:
-            print "Resetting negative example offsets"
+            print("Resetting negative example offsets")
             data_loader.reset_offsets(split="train", pn="neg")
 
         if not l % meta.mark or not data_loader.unfilled["pos"]["train"]:
@@ -72,7 +72,7 @@ def train_gen(opt, meta, model, data_loader, gpu=True):
 
             # Reset data for next epoch
             if not data_loader.unfilled["pos"]["train"]:
-                print "Resetting positive example offsets"
+                print("Resetting positive example offsets")
                 data_loader.reset_offsets(
                     split="train", pn="pos")
                 epoch += 1

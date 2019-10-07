@@ -263,7 +263,7 @@ class CNNEncoder(models.PretrainedEmbeddingsModel):
         Ci = 1
         Co = opt.kn
         Ks = opt.ks
-        print opt.iSize
+        print(opt.iSize)
         self.embeddings = nn.Embedding(opt.vSize, opt.iSize)
         self.convs1 = nn.ModuleList([nn.Conv2d(Ci, Co, (int(K), opt.iSize))
                                      for K in Ks.split(",")])

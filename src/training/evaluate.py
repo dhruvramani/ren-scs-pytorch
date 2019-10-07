@@ -90,7 +90,7 @@ def eval_gen(opt, model, data_loader, gpu=True, split="dev"):
     if gpu:
         torch.cuda.synchronize()
 
-    print "Dev evaluation completed in: {} s".format(time.time() - start)
+    print("Dev evaluation completed in: {} s".format(time.time() - start))
 
     # Get normalizers for each loss
     divs = {
@@ -173,7 +173,7 @@ def eval_class(opt, model, data_loader, gpu=True, split="dev"):
     if gpu:
         torch.cuda.synchronize()
 
-    print "Dev evaluation completed in: {} s".format(time.time() - start)
+    print("Dev evaluation completed in: {} s".format(time.time() - start))
 
     return {i: j[0] / num for i, j in average_loss.iteritems()}, \
         scores, counts, answers

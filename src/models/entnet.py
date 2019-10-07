@@ -112,7 +112,7 @@ class EntNet(nn.Module):
     def load_entity_embeddings(self, vocab):
         if self.opt.pt != "none":
             name = cfg.get_glove_name(self.opt, "entities", "entpt")
-            print "Loading entity embeddings from {}".format(name)
+            print("Loading entity embeddings from {}".format(name))
             with open(name, "r") as f:
                 entity_words = pickle.load(f)
 

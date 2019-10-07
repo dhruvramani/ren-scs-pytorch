@@ -43,7 +43,7 @@ vocab_text = {
 splits = ["train", "dev", "test"]
 
 print("Loading Data")
-print opt
+print(opt)
 
 # Don't save models
 meta.save = True
@@ -58,7 +58,7 @@ opt.train.dynamic.epoch = 0
 
 # Build Model
 print("Building Model")
-print "Doing task: {}".format(opt.task)
+print("Doing task: {}".format(opt.task))
 
 # Initialize data loader
 if opt.net.enc.model in ["ren", "npn"]:

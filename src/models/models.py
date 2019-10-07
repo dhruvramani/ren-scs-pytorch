@@ -26,7 +26,7 @@ class PretrainedEmbeddingsModel(nn.Module):
         if self.opt.pt != "none":
             # Get glove vector file name
             name = cfg.get_glove_name(self.opt, "tokens")
-            print "Loading embeddings from {}".format(name)
+            print("Loading embeddings from {}".format(name))
 
             # Load glove vectors
             with open(name, "r") as f:

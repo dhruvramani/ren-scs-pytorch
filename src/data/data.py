@@ -35,14 +35,14 @@ def save_step(model, optimizer, opt, length):
         'epoch': length, 'state_dict': model.state_dict(),
         'optimizer': optimizer.state_dict(), "opt": opt},
         name)
-    print "Saving to: {}".format(name)
+    print("Saving to: {}".format(name))
 
 
 # Name the training loss and save them
 def save_train_losses(opt, iter_loss, ln="losses"):
     name = "{}/train.pickle".format(utils.make_name(
         opt, prefix="results/{}/".format(ln), is_dir=True))
-    print "Saving training losses to: {}".format(name)
+    print("Saving training losses to: {}".format(name))
     with open(name, "w") as f:
         pickle.dump(iter_loss, f)
 
@@ -52,7 +52,7 @@ def save_eval_losses(opt, eval_losses, split="dev", ln="losses"):
     if eval_losses:
         name = "{}/{}.pickle".format(utils.make_name(
             opt, prefix="results/{}/".format(ln), is_dir=True), split)
-        print "Saving evaluation losses to: {}".format(name)
+        print("Saving evaluation losses to: {}".format(name))
         with open(name, "w") as f:
             pickle.dump(eval_losses, f)
 
@@ -312,7 +312,7 @@ class NeuralModelDataLoader(DataLoader):
         if exist:
             name = "processed/{}/{}_{}_{}_dev-test_data_loader.pth".format(
                 type_, opt.data.label, dl_type, granularity)
-            print "Loading model from: {}".format(name)
+            print("Loading model from: {}".format(name))
             with open(name, "r") as f:
                 self = torch.load(f)
             return self
@@ -334,7 +334,7 @@ class NeuralModelDataLoader(DataLoader):
             self.ent_labels[split] = {}
             self.ent_init[split] = {}
 
-            print "Reading from Data File"
+            print("Reading from Data File")
             if split == "train":
                 print("Reading data from {}".format(self.fnames[split]))
                 data = pd.read_csv(self.fnames[split])
@@ -355,14 +355,14 @@ class NeuralModelDataLoader(DataLoader):
             ent_ments = pickle.load(open(
                 self.fnames[split + "_entity_mentions"], "r"))
 
-            print "Done reading data"
+            print("Done reading data")
             self.sent_maxes[split] = self.get_maxes(
                 data["sentence"].apply(lit_eval))
             self.ctx_maxes[split] = self.get_maxes(
                 data["context"].apply(ctx_lit_eval), ctx=True)
 
-            print "Putting Data in Tensors"
-            print "Doing {}".format(split)
+            print("Putting Data in Tensors")
+            print("Doing {}".format(split))
 
             bar = progressbar.ProgressBar(max_value=len(data.index))
             bar.update(0)
@@ -563,7 +563,7 @@ class NeuralModelDataLoader(DataLoader):
                 if keys in self.offset[split]:
                     self.offset[split][keys] = 0
                 else:
-                    print "keys not in offset"
+                    print("keys not in offset")
             self.unfilled[split] = \
                 self.unfilled[split].union(keyss)
 
@@ -674,7 +674,7 @@ class MemoryModelDataLoader(NeuralModelDataLoader):
         # Get entity ids from vocab
         for ent, idx in num_ents.iteritems():
             if ent.lower() not in self.vocabs["entity"]._index:
-                print ent.lower()
+                print(ent.lower())
             eids[idx] = self.vocabs["entity"][ent.lower()]
 
         # Get entity labels at each step for

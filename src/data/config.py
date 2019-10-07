@@ -287,7 +287,7 @@ def get_class_parameters(params, opt):
 
 def read_config(file_):
     config = DD()
-    print file_
+    print(file_)
     for k, v in file_.iteritems():
         if v == "True" or v == "T" or v == "true":
             config[k] = True

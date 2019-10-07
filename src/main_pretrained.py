@@ -43,7 +43,7 @@ vocab_text = {
 splits = ["dev", "test"]
 
 print("Loading Data")
-print opt
+print(opt)
 
 # Don't save models
 meta.save = True
@@ -51,8 +51,8 @@ meta.save = True
 opt.epochs = 100
 
 # Load model
-print 'Loading model from: {}'.format(
-    config["load_model_{}_{}".format(opt.net.enc.model, opt.task)])
+print('Loading model from: {}'.format(
+    config["load_model_{}_{}".format(opt.net.enc.model, opt.task)]))
 loaded_model = data.load_checkpoint(
     config["load_model_{}_{}".format(opt.net.enc.model, opt.task)])
 
@@ -60,7 +60,7 @@ loaded_model = data.load_checkpoint(
 old_opt = loaded_model["opt"]
 
 if old_opt.net.enc.model != opt.net.enc.model:
-    print "Not the same model being run. Ending"
+    print("Not the same model being run. Ending")
     raise
 
 # Save number of epochs trained for pretrained model
@@ -73,8 +73,8 @@ opt.net.gendec = old_opt.net.gendec
 # Assure that the task is for one that was pretrained
 opt.task = old_opt.task
 
-print "Doing task: {}".format(opt.task)
-print "Doig granularity: {}".format(opt.granularity)
+print("Doing task: {}".format(opt.task))
+print("Doig granularity: {}".format(opt.granularity))
 
 # Initialize data loaders
 if opt.net.enc.model in ["ren", "npn"]:
@@ -186,11 +186,11 @@ if config.gpu_mode:
             data_loader.class_weights[split].cuda(
                 cfg.device)
 
-    print "Data to gpu took {} s".format(
-        time.time() - start)
+    print("Data to gpu took {} s".format(
+        time.time() - start))
     model.cuda(cfg.device)
-    print "Model to gpu took {} s".format(
-        time.time() - start)
+    print("Model to gpu took {} s".format(
+        time.time() - start))
 
 print("Done.")
 
