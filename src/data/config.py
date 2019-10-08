@@ -9,7 +9,7 @@ import json
 from jobman import DD
 
 device = 0
-do_gpu = False
+do_gpu = True
 
 gpu_mapping = {
     "thor": {

@@ -12,12 +12,12 @@
     "experiment": "class",
     "train_ratio": 0.8,
     "keep_story": "T",
-    "task": "motivation",
-    "granularity": "maslow",
+    "task": "emotion",
+    "granularity": "plutchik",
 
     "encoder": {
         "ctx": "T",
-        "model": "cnn",
+        "model": "ren",
         "dropout": 0,
         "pt": "glove",
         "init": "def",
