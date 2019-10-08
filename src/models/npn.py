@@ -13,7 +13,7 @@ from torch.autograd import Variable
 import torch.nn.functional as F
 
 import math
-import pickle
+import cPickle as pickle
 
 
 class EntityUpdater(nn.Module):

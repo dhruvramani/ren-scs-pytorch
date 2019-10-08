@@ -10,7 +10,7 @@ author: Antoine Bosselut (atcbosselut)
 
 import os
 import ast
-import pickle
+import cPickle as pickle
 import random
 
 import nltk

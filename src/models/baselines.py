@@ -14,7 +14,7 @@ import torch.nn as nn
 from torch.autograd import Variable
 import torch.nn.functional as F
 
-import pickle
+import cPickle as pickle
 
 
 class Model(nn.Module):

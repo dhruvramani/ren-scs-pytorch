@@ -5,7 +5,7 @@ story commonsense dataset.
 author: Antoine Bosselut (atcbosselut)
 """
 
-import pickle
+import cPickle as pickle
 
 import torch
 from torch.autograd import Variable

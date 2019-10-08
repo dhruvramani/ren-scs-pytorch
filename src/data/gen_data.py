@@ -11,7 +11,7 @@ author: Antoine Bosselut (atcbosselut)
 """
 
 import ast
-import pickle
+import cPickle as pickle
 import random
 import itertools
 
