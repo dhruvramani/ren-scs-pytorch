@@ -1,4 +1,6 @@
 # Byte-compiled / optimized / DLL files
+models/
+results/
 processed/
 data/
 __pycache__/

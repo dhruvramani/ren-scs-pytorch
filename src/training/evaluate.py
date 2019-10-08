@@ -175,7 +175,7 @@ def eval_class(opt, model, data_loader, gpu=True, split="dev"):
 
     print("Dev evaluation completed in: {} s".format(time.time() - start))
 
-    return {i: j[0] / num for i, j in average_loss.iteritems()}, \
+    return {i: j.item() / num for i, j in average_loss.iteritems()}, \
         scores, counts, answers
 
 
@@ -264,10 +264,10 @@ def compute_scores(vocab, scores, counts, _labels, predicted):
 
     # Precision is looks at how many positive labels we get right
     # from the ones we predict
-    local_precision = ((_labels == predicted) & predicted.byte()).float()
+    local_precision = ((_labels == predicted) & predicted.bool()).float()
 
     # Recall counts the number of positive labels we recover
-    local_recall = ((_labels == predicted) & _labels.byte()).float()
+    local_recall = ((_labels == predicted) & _labels.bool()).float()
 
     # Accuracy just looks at whether we predict the same as the label
     # regardless of whether it's negative or positive

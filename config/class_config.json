@@ -1,7 +1,7 @@
 {
     "load_model_name": "",
     "gpu_mode": "T",
-    "gpu_index": 1,
+    "gpu_index": 0,
 
     "batch_size": 32,
     "label": "majority",

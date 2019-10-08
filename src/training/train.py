@@ -243,7 +243,7 @@ def train_class(opt, meta, model, data_loader, gpu=True,
                 hidden, Variable(_labs), Variable(wts))
 
             # Add loss to tracked loss
-            total_loss += loss.data[0] * bs
+            total_loss += loss.data.item() * bs
             num += bs
             iter_loss.append(total_loss / num)
 
