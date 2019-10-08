@@ -35,14 +35,14 @@ def save_step(model, optimizer, opt, length):
         'epoch': length, 'state_dict': model.state_dict(),
         'optimizer': optimizer.state_dict(), "opt": opt},
         name)
-    print("Saving to: {}".format(name))
+    #print("Saving to: {}".format(name))
 
 
 # Name the training loss and save them
 def save_train_losses(opt, iter_loss, ln="losses"):
     name = "{}/train.pickle".format(utils.make_name(
         opt, prefix="results/{}/".format(ln), is_dir=True))
-    print("Saving training losses to: {}".format(name))
+    #print("Saving training losses to: {}".format(name))
     with open(name, "w") as f:
         pickle.dump(iter_loss, f)
 
@@ -52,7 +52,7 @@ def save_eval_losses(opt, eval_losses, split="dev", ln="losses"):
     if eval_losses:
         name = "{}/{}.pickle".format(utils.make_name(
             opt, prefix="results/{}/".format(ln), is_dir=True), split)
-        print("Saving evaluation losses to: {}".format(name))
+        #print("Saving evaluation losses to: {}".format(name))
         with open(name, "w") as f:
             pickle.dump(eval_losses, f)
 
